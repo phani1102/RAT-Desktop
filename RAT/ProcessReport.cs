@@ -255,7 +255,7 @@ namespace RAT
                 }
                 else
                 {
-                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://httpbin.org/get");
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                     if (response.StatusCode == HttpStatusCode.OK)
@@ -263,7 +263,7 @@ namespace RAT
                         Stream receiveStream = response.GetResponseStream();
                         StreamReader readStream = null;
 
-                        if (response.CharacterSet == null)
+                        if (string.IsNullOrEmpty(response.CharacterSet))
                         {
                             readStream = new StreamReader(receiveStream);
                         }
