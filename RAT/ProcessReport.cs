@@ -255,7 +255,7 @@ namespace RAT
                 }
                 else
                 {
-                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://httpbin.org/get");
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                     if (response.StatusCode == HttpStatusCode.OK)
